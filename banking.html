@@ -96,13 +96,12 @@
             document.getElementById(fieldId).innerText=previousAmount+inputAmount;
         }
         function totalBalance(balaceId,inputAmount,isAdd){
-            const totalBalaceAmount=document.getElementById(balaceId);
-            const previousBalace=parseFloat(totalBalaceAmount.innerText);
+            const previousBalace=amountCheck(balaceId);
             if(isAdd==true){
-                totalBalaceAmount.innerText=previousBalace+inputAmount
+                document.getElementById(balaceId).innerText=previousBalace+inputAmount
             }
             else{
-                totalBalaceAmount.innerText=previousBalace-inputAmount;
+                document.getElementById(balaceId).innerText=previousBalace-inputAmount;
             }
         }
         document.getElementById('deposit-button').addEventListener('click',function(){
