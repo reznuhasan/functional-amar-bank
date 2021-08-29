@@ -80,6 +80,47 @@
         </section>
     </main>
     <script src="js/banking.js"></script>
+    <script>
+        function newInputAmount(inputId){
+            const inputAmount=document.getElementById(inputId);
+            const newAmount=parseFloat(inputAmount.value);
+            inputAmount.value=''
+            return newAmount;
+        }
+        function updateAmount(fieldId,inputAmount){
+            const amount=document.getElementById(fieldId);
+            const previousAmount=parseFloat(amount.innerText);
+            amount.innerText=previousAmount+inputAmount;
+        }
+        function totalBalance(balaceId,inputAmount,isAdd){
+            const totalBalaceAmount=document.getElementById(balaceId);
+            const previousBalace=parseFloat(totalBalaceAmount.innerText);
+            if(isAdd==true){
+                totalBalaceAmount.innerText=previousBalace+inputAmount
+            }
+            else{
+                totalBalaceAmount.innerText=previousBalace-inputAmount;
+            }
+        }
+        document.getElementById('deposit-button').addEventListener('click',function(){
+            const depositAmount=newInputAmount('deposit-input')
+            if(depositAmount>0){
+                updateAmount('previous-deposit',depositAmount);
+                totalBalance('balance',depositAmount,true);
+            }
+        });
+       function balanceCheck(balanceInput){
+           return parseFloat(document.getElementById(balanceInput).innerText)
+       }
+        document.getElementById('withdraw-button').addEventListener('click',function(){
+            const withdrawAmount=newInputAmount('withdraw-input')
+            const currentBalance=balanceCheck('balance');
+            if(withdrawAmount>0 && currentBalance>withdrawAmount){
+                updateAmount('previous-withdraw',withdrawAmount);
+                totalBalance('balance',withdrawAmount,false);
+            }
+        });
+    </script>
 </body>
 
 </html>
