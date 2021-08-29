@@ -81,44 +81,44 @@
     </main>
     <script src="js/banking.js"></script>
     <script>
-        function newInputAmount(inputId){
-            const inputAmount=document.getElementById(inputId);
-            const newAmount=parseFloat(inputAmount.value);
-            inputAmount.value=''
-            return newAmount;
-        }
-        function amountCheck(amountInput){
-           return parseFloat(document.getElementById(amountInput).innerText)
-       }
-        function updateAmount(fieldId,inputAmount){
+    //     function newInputAmount(inputId){
+    //         const inputAmount=document.getElementById(inputId);
+    //         const newAmount=parseFloat(inputAmount.value);
+    //         inputAmount.value=''
+    //         return newAmount;
+    //     }
+    //     function amountCheck(amountInput){
+    //        return parseFloat(document.getElementById(amountInput).innerText)
+    //    }
+    //     function updateAmount(fieldId,inputAmount){
             
-            const previousAmount=amountCheck(fieldId)
-            document.getElementById(fieldId).innerText=previousAmount+inputAmount;
-        }
-        function totalBalance(balaceId,inputAmount,isAdd){
-            const previousBalace=amountCheck(balaceId);
-            if(isAdd==true){
-                document.getElementById(balaceId).innerText=previousBalace+inputAmount
-            }
-            else{
-                document.getElementById(balaceId).innerText=previousBalace-inputAmount;
-            }
-        }
-        document.getElementById('deposit-button').addEventListener('click',function(){
-            const depositAmount=newInputAmount('deposit-input')
-            if(depositAmount>0){
-                updateAmount('previous-deposit',depositAmount);
-                totalBalance('balance',depositAmount,true);
-            }
-        });
-        document.getElementById('withdraw-button').addEventListener('click',function(){
-            const withdrawAmount=newInputAmount('withdraw-input')
-            const currentBalance=amountCheck('balance');
-            if(withdrawAmount>0 && currentBalance>withdrawAmount){
-                updateAmount('previous-withdraw',withdrawAmount);
-                totalBalance('balance',withdrawAmount,false);
-            }
-        });
+    //         const previousAmount=amountCheck(fieldId)
+    //         document.getElementById(fieldId).innerText=previousAmount+inputAmount;
+    //     }
+    //     function totalBalance(balaceId,inputAmount,isAdd){
+    //         const previousBalace=amountCheck(balaceId);
+    //         if(isAdd==true){
+    //             document.getElementById(balaceId).innerText=previousBalace+inputAmount
+    //         }
+    //         else{
+    //             document.getElementById(balaceId).innerText=previousBalace-inputAmount;
+    //         }
+    //     }
+    //     document.getElementById('deposit-button').addEventListener('click',function(){
+    //         const depositAmount=newInputAmount('deposit-input')
+    //         if(depositAmount>0){
+    //             updateAmount('previous-deposit',depositAmount);
+    //             totalBalance('balance',depositAmount,true);
+    //         }
+    //     });
+    //     document.getElementById('withdraw-button').addEventListener('click',function(){
+    //         const withdrawAmount=newInputAmount('withdraw-input')
+    //         const currentBalance=amountCheck('balance');
+    //         if(withdrawAmount>0 && currentBalance>withdrawAmount){
+    //             updateAmount('previous-withdraw',withdrawAmount);
+    //             totalBalance('balance',withdrawAmount,false);
+    //         }
+    //     });
     </script>
 </body>
 
